@@ -129,3 +129,4 @@ console.log(-true) //-1
 let myage = 20;
 let result = (myage >= 18) ? "Adult" : "Minor"
 console.log(result) //Adult
+console.log(typeof result)
