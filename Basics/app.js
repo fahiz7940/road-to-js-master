@@ -112,3 +112,20 @@ console.log(!g) //NOT
 // 5. Unary Operators
 // Operate on a single value.
 
+let unr =  5;
+
+console.log(++n) // 6 (pre-increment: increase first, then use)
+console.log(n++) // 6 (post-increment: use first , then increase)
+console.log(--n) // 6 (pre-decrement)
+console.log(n--) // 6 (post-decrement)
+
+console.log(typeof "hello")
+console.log(+ "123") //String -> number
+console.log(-true) //-1
+
+// 6. Ternary Operator (Conditional)
+// Shorthand for if...else.
+
+let myage = 20;
+let result = (myage >= 18) ? "Adult" : "Minor"
+console.log(result) //Adult
