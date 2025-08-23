@@ -4,8 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basics & Foundations</title>
+     <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; margin: 24px; max-width: 900px; }
+    h1, h2 { margin: 0.4em 0; }
+    code, pre { background: #f6f8fa; border: 1px solid #e5e7eb; border-radius: 6px; }
+    code { padding: 0.1em 0.35em; }
+    pre { padding: 12px; overflow: auto; }
+    ul { margin-top: 0.5em; }
+    .tag { display:inline-block; font-size:12px; padding:2px 6px; border:1px solid #e5e7eb; border-radius:999px; background:#fafafa; margin-left:8px; }
+    details { border:1px solid #e5e7eb; border-radius:8px; padding:10px 12px; background:#fff; margin:10px 0; }
+    summary { cursor:pointer; font-weight:600; }
+  </style>
 </head>
 <body>
+     <h1>JavaScript Basics — Study Summary</h1>
+
+  <!-- 1. Primitive Data Types -->
+  <section>
+    <h2>1) Primitive Data Types <span class="tag">stored by value</span> <span class="tag">immutable</span></h2>
+    <ul>
+      <li><strong>String</strong> — text values. <code>"Fahiz"</code></li>
+      <li><strong>Number</strong> — integers, floats, <code>NaN</code>, <code>Infinity</code>. <code>42</code>, <code>3.14</code></li>
+      <li><strong>BigInt</strong> — very large integers. <code>123n</code></li>
+      <li><strong>Boolean</strong> — <code>true</code> / <code>false</code></li>
+      <li><strong>Undefined</strong> — declared but not assigned</li>
+      <li><strong>Null</strong> — intentional empty value</li>
+      <li><strong>Symbol</strong> — unique identifiers</li>
+    </ul>
+    <details>
+      <summary>Quick examples</summary>
+      <pre><code>let name = "Fahiz";
+let age = 21;
+let big = 9007199254740993n;
+let isStudent = true;
+let x;            // undefined
+let empty = null; // null
+let id = Symbol("id");</code></pre>
+    </details>
+  </section>
+
+  <!-- 2. Reference Types -->
+  <section>
+    <h2>2) Reference Types (Non-Primitive) <span class="tag">stored by reference</span> <span class="tag">mutable</span></h2>
+    <ul>
+      <li><strong>Object</strong> — key/value pairs: <code>{ name: "Fahiz", age: 22 }</code></li>
+      <li><strong>Array</strong> — ordered list: <code>["apple", "banana"]</code></li>
+      <li><strong>Function</strong> — callable object: <code>function greet() {}</code></li>
+    </ul>
+    <details>
+      <summary>Copy behavior example</summary>
+      <pre><code>// Primitive copy (new value)
+let a = 10; let b = a; b = 20; // a stays 10
+
+// Reference copy (same object)
+let o1 = { n: 1 }; let o2 = o1; o2.n = 2; // o1.n becomes 2</code></pre>
+    </details>
+  </section>
+
+  <!-- 3. Type Conversion -->
+  <section>
+    <h2>3) Type Conversion (Casting / Coercion)</h2>
+
+    <h3>Explicit Conversion (you do it)</h3>
+    <ul>
+      <li><code>Number("123")</code> → <code>123</code></li>
+      <li><code>String(50)</code> → <code>"50"</code></li>
+      <li><code>Boolean(0)</code> → <code>false</code>, <code>Boolean("hi")</code> → <code>true</code></li>
+      <li><code>parseInt("42")</code>, <code>parseFloat("3.14")</code></li>
+    </ul>
+    <pre><code>const n = Number("12");     // 12
+const s = String(12);       // "12"
+const ok = Boolean("hey");  // true</code></pre>
+
+    <h3>Implicit Conversion (JS does it)</h3>
+    <ul>
+      <li><strong>String coercion</strong> with <code>+</code>: <code>"5" + 2</code> → <code>"52"</code></li>
+      <li><strong>Number coercion</strong> with <code>- * /</code>: <code>"10" - 2</code> → <code>8</code></li>
+      <li><strong>Boolean coercion</strong> in conditions: falsy → <code>0</code>, <code>""</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code>, <code>false</code></li>
+      <li><strong>Equality</strong>: <code>"10" == 10</code> (true) vs <code>"10" === 10</code> (false)</li>
+    </ul>
+    <pre><code>console.log("5" - 2);   // 3
+console.log("5" + 2);   // "52"
+console.log(Boolean("")); // false</code></pre>
+  </section>
+
+  <!-- 4. Operators -->
+  <section>
+    <h2>4) Operators</h2>
+
+    <h3>Arithmetic</h3>
+    <p><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>**</code></p>
+    <pre><code>10 + 3; 10 - 3; 10 * 3; 10 / 3; 10 % 3; 2 ** 5;</code></pre>
+
+    <h3>Assignment</h3>
+    <p><code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>, <code>**=</code></p>
+
+    <h3>Comparison</h3>
+    <p><code>==</code>, <code>===</code>, <code>!=</code>, <code>!==</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></p>
+    <pre><code>5 == "5";   // true
+5 === "5";  // false</code></pre>
+
+    <h3>Logical</h3>
+    <p><code>&&</code> (AND), <code>||</code> (OR), <code>!</code> (NOT)</p>
+
+    <h3>Unary</h3>
+    <p><code>++</code>, <code>--</code>, <code>typeof</code>, unary <code>+</code> / <code>-</code></p>
+
+    <h3>Ternary</h3>
+    <pre><code>const status = age >= 18 ? "Adult" : "Minor";</code></pre>
+
+    <h3>Bitwise</h3>
+    <p><code>&amp;</code>, <code>|</code>, <code>^</code>, <code>~</code>, <code>&lt;&lt;</code>, <code>&gt;&gt;</code></p>
+
+    <h3>Modern</h3>
+    <ul>
+      <li><strong>Nullish Coalescing</strong> <code>??</code>: uses right side only if left is <code>null</code> or <code>undefined</code></li>
+      <li><strong>Optional Chaining</strong> <code>?.</code>: safe property access</li>
+    </ul>
+    <pre><code>userName ?? "Guest";
+person?.address?.city;</code></pre>
+  </section>
+
+  <hr />
+  <p><em>Tip:</em> Prefer explicit conversions and strict equality (<code>===</code>) to avoid tricky coercion bugs.</p>
+
     <script src="app.js"></script>
 </body>
 </html>
