@@ -21,4 +21,5 @@ let age = 21;
 
 console.log(
     age >= 18 ? "You Are an Adult": "You Are a Minor"
+    
 )
