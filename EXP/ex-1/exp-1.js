@@ -1,3 +1,5 @@
+// ---------------- Number ------------------
+
 // Q1:- Create two number variables and find their sum, difference, product, and quotient.
 let num1 = 10;
 let num2 = 5;
@@ -33,3 +35,6 @@ console.log(typeof str)
 
 // Q5:- Round a decimal number to the nearest integer.
 
+let n01 = 7.6;
+let roundedNum = Math.round(n01);
+console.log(roundedNum)
